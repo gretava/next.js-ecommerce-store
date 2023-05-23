@@ -1,6 +1,7 @@
 import './globals.scss';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import styles from './layout.module.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,11 +15,61 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <header>
-          <Link href="/">Home</Link> <Link href="/products">Products</Link>{' '}
-          <Link href="/about">About</Link>
-          <Link href="/cart">Cart</Link>
+          <section className={styles.navigationBar}>
+            <div className={styles.navigationLinks}>
+              <ul className={styles.navigationLinksLeft}>
+                <li>
+                  <Link href="/">Home</Link>
+                </li>
+                <li>
+                  <Link data-test-id="products-link" href="/products">
+                    Products
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className={styles.nameHeader}>
+              <h1>
+                <a href="/">company name</a>
+              </h1>
+            </div>
+            <div className={styles.navigationLinks}>
+              <ul className={styles.navigationLinksRight}>
+                <li>
+                  <Link href="/about">About</Link>
+                </li>
+                <li>
+                  <Link href="/cart">Cart</Link>
+                </li>
+              </ul>
+            </div>
+          </section>
         </header>
+
         {children}
+
+        <footer className={styles.footerSection}>
+          <section>
+            <h1>The newsletter</h1>
+            <form>
+              <input name="subscription-field" placeholder="your email" />
+              <p>
+                Stay up to date on new products, special discounts and free
+                giveaways.
+              </p>
+              <button>send</button>
+            </form>
+          </section>
+          <div>
+            <p>123 This street, This City</p>
+          </div>
+          <div>
+            <p>hello@company.com</p>
+          </div>
+          <div>
+            <p>social media</p>
+          </div>
+        </footer>
       </body>
     </html>
   );
