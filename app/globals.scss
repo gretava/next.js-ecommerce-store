@@ -1,4 +1,25 @@
 * {
   margin: 0;
-  background-color: antiquewhite;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f1ed;
+}
+
+// html,
+// body {
+//   height: 100%;
+//   // min-height: 100vh;
+//   // calc(100vh - 100px)
+// }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(43, 226, 76);
 }
