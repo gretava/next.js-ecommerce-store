@@ -1,0 +1,23 @@
+// .heroImage {
+//   background-image: url('../public/images/soap1.jpg');
+// }
+
+.heroWrapper {
+  position: relative;
+  width: 100vw;
+  height: 60vh;
+}
+
+.imageWrapper {
+  z-index: -1;
+}
+
+.heroButton {
+  position: relative;
+  // display: flex;
+  flex-direction: column;
+  // align-items: ;
+  margin: 15rem;
+  border-radius: 5px;
+  padding: 10px 60px;
+}
