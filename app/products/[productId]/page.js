@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getProductById } from '../../../database/products';
+import productToUpdate from './actions';
+import AddToCartForm from './AddToCartForm';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,9 +21,12 @@ export default function SingleProductPage({ params }) {
         src={`/images/${singleProduct.name}.jpg`}
         width={200}
         height={300}
+        alt=""
       />
+      <p>{singleProduct.description}</p>
       <br />
-      This is single product page
+      {productToUpdate.quantity}
+      <AddToCartForm productId={singleProduct.id} />
     </main>
   );
 }
