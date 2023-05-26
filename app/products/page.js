@@ -30,6 +30,7 @@ export default function ProductsPage() {
               src={`/images/${product.name}.jpg`}
               width={200}
               height={300}
+              alt=""
             />
           </div>
         );
