@@ -16,7 +16,7 @@ export default async function updateQuantity(productId, quantity) {
     : parseJson(productQuantityCookie);
   // 3. we edit the object
 
-  // We get the object for the product in cookies or undefinied
+  // We get the object for the product in cookies or undefined
   const productToUpdate = productQuantities.find((productQuantity) => {
     return productQuantity.id === productId;
   });
@@ -24,11 +24,11 @@ export default async function updateQuantity(productId, quantity) {
   // the cookie is defined but have the product in the action
   // if we are in product 1
   if (productToUpdate) {
-    // we need to update productQuantity
-    productToUpdate.quantity = quantity;
+    // we need to update/add new quantity on top (not instead) of productQuantity
+    productToUpdate.quantity = productToUpdate.quantity + quantity;
   } else {
     productQuantities.push({
-      // we need insert the productQuantity
+      // we need insert the new productQuantity in cart
       id: productId,
       quantity,
     });
