@@ -4,18 +4,19 @@ import { useState } from 'react';
 import updateQuantity from './actions';
 
 export default function AddToCartForm(props) {
-  const [quantity, setQuantity] = useState('1');
+  const [quantity, setQuantity] = useState(1);
   const router = useRouter();
 
   return (
     <form>
       <input
+        data-test-id="product-quantity"
         type="number"
-        min={1}
-        max={15}
+        min="1"
+        // max={15}
         value={quantity}
         onChange={(event) => {
-          setQuantity(event.currentTarget.value);
+          setQuantity(Number(event.currentTarget.value));
         }}
       />
       <button
