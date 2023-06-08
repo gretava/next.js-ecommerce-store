@@ -1,9 +1,10 @@
 import './globals.scss';
-import { Inter } from 'next/font/google';
+// import { Inter } from 'next/font/google';
 import Link from 'next/link';
+// import { products } from '../database/products';
 import styles from './layout.module.scss';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <header>
           <section className={styles.navigationBar}>
             <div className={styles.navigationLinks}>
@@ -30,7 +31,7 @@ export default function RootLayout({ children }) {
             </div>
             <div className={styles.nameHeader}>
               <h1>
-                <a href="/">company name</a>
+                <a href="/">zero hero</a>
               </h1>
             </div>
             <div className={styles.navigationLinks}>
