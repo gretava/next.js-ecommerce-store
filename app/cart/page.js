@@ -1,17 +1,18 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { products } from '../../database/products';
+import { getProducts } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
+import styles from './page.module.scss';
 import RemoveProducts from './RemoveProducts';
 import UpdateItemQuantity from './UpdateItemQuantity';
 
 export const dynamic = 'force-dynamic';
 
-export default function CartPage() {
-  // const products = await lsProducts;
+export default async function CartPage() {
+  const products = await getProducts();
 
   const productQuantityCookie = getCookie('cart');
-
   const productQuantities = !productQuantityCookie
     ? // cookie is undefined
       // we need to create the new array with the productQuantity inside
@@ -22,6 +23,7 @@ export default function CartPage() {
     // map() method is commonly used to apply some changes to the elements
     const matchingProductFromCookie = productQuantities.find(
       // find() method returns the value of the first element that passes a test
+
       (productObject) => product.id === productObject.id,
     );
 
@@ -46,21 +48,36 @@ export default function CartPage() {
   console.log(totalPrice);
 
   return (
-    <main>
+    <main className={styles.main}>
       <h1>Your cart</h1>
-      <div>
+      <section className={styles.cartSections}>
+        <div className={styles.cartHead}>
+          <p className={styles.cartHead}>Product</p>
+          <p className={styles.cartHead}>Title</p>
+          <p>Quantity</p>
+          <p>Price</p>
+        </div>
+      </section>
+      <div className={styles.cartContainer}>
         {itemsInCart.map((product) => {
           return (
             <div key={`product-${product.id}`}>
               <Link href={`/products/${product.id}`}>
+                <div>
+                  <Image
+                    src={`/images/${product.name}.jpg`}
+                    width={100}
+                    height={150}
+                    alt={product.title}
+                  />
+                </div>
                 <div>{product.title}</div>
               </Link>
-
               <div>{product.price}</div>
               <form>
                 <UpdateItemQuantity product={product} />
               </form>
-              {/* <div>{product.quantity}</div> */}
+
               <form>
                 <RemoveProducts product={product} />
               </form>
@@ -72,6 +89,15 @@ export default function CartPage() {
       <br />
 
       <div data-test-id="cart-total">Total price: {totalPrice}</div>
+
+      <Link
+        className={styles.checkoutButton}
+        type="button"
+        data-test-id="cart-checkout"
+        href="/checkout"
+      >
+        Checkout
+      </Link>
     </main>
   );
 }
