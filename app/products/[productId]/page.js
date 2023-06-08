@@ -6,8 +6,10 @@ import AddToCartForm from './AddToCartForm';
 
 export const dynamic = 'force-dynamic';
 
-export default function SingleProductPage({ params }) {
-  const singleProduct = getProductById(Number(params.productId)); // Convert the string into a number
+export default async function SingleProductPage({ params }) {
+  const singleProduct = await getProductById(Number(params.productId)); // convert string into a number
+
+  // const products = await getProducts;
 
   if (!singleProduct) {
     notFound();
