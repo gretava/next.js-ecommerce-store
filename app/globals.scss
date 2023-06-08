@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Figtree:wght@700;800&family=Raleway&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: #f4f1ed;
+}
+
+:root {
+  --title-font: 'Abril Fatface', sans-serif;
+  // font-family: 'Figtree', sans-serif;
+  --body-font: 'Raleway', sans-serif;
 }
 
 // html,
