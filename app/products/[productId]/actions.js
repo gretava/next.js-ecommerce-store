@@ -25,15 +25,28 @@ export default async function updateQuantity(productId, quantity) {
   // if we are in product 1
   if (productToUpdate) {
     // we need to update/add new quantity on top (not instead) of productQuantity
-    productToUpdate.quantity = productToUpdate.quantity + quantity;
+    productToUpdate.quantity =
+      Number(productToUpdate.quantity) + Number(quantity);
   } else {
     productQuantities.push({
       // we need insert the new productQuantity in cart
       id: productId,
-      quantity,
+      quantity: Number(quantity),
     });
   }
   // 4. we override the cookie
   // This set the cookies into the Response Headers
   await cookies().set('cart', JSON.stringify(productQuantities));
+}
+
+export async function getQuantity() {
+  // 1. Get the current cookie from the Request Headers
+
+  const productQuantityCookie = await getCookie('cart');
+  // 2. Parse the cookie
+  const productQuantities = !productQuantityCookie
+    ? [] // 3. Create a new array with the productQuantity
+    : parseJson(productQuantityCookie);
+
+  return productQuantities;
 }
