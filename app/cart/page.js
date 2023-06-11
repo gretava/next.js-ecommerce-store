@@ -47,57 +47,68 @@ export default async function CartPage() {
 
   console.log(totalPrice);
 
+  let subTotal = 0;
+
+  console.log(subTotal);
+
   return (
     <main className={styles.main}>
       <h1>Your cart</h1>
-      <section className={styles.cartSections}>
-        <div className={styles.cartHead}>
-          <p className={styles.cartHead}>Product</p>
-          <p className={styles.cartHead}>Title</p>
-          <p>Quantity</p>
+      <div className={styles.cartBody}>
+        {/* <div className={styles.mainCart}> */}
+        <div className={styles.cartSections}>
+          <p>Product</p>
+          <p>Title</p>
           <p>Price</p>
+          <p>Quantity</p>
         </div>
-      </section>
-      <div className={styles.cartContainer}>
-        {itemsInCart.map((product) => {
-          return (
-            <div key={`product-${product.id}`}>
-              <Link href={`/products/${product.id}`}>
-                <div>
+        <div
+          // className={styles.cartContainer}
+          data-test-id="cart-product-<product id>"
+        >
+          {itemsInCart.map((product) => {
+            subTotal = product.quantity * product.price;
+            return (
+              <div
+                className={styles.cartProducts}
+                key={`product-${product.id}`}
+              >
+                <Link href={`/products/${product.id}`}>
                   <Image
+                    className={styles.productImage}
                     src={`/images/${product.name}.jpg`}
-                    width={100}
+                    width={120}
                     height={150}
                     alt={product.title}
                   />
-                </div>
-                <div>{product.title}</div>
-              </Link>
-              <div>{product.price}</div>
-              <form>
-                <UpdateItemQuantity product={product} />
-              </form>
-
-              <form>
-                <RemoveProducts product={product} />
-              </form>
-            </div>
-          );
-        })}
+                </Link>
+                <div className={styles.productTitle}>{product.title}</div>
+                {/* <div> */}
+                <div>{product.price}</div>
+                <form className={styles.productQuantity}>
+                  <UpdateItemQuantity product={product} />
+                  <RemoveProducts product={product} />
+                </form>
+                <div>{subTotal}</div>
+                {/* </div> */}
+                {/* <div>
+                  <form><RemoveProducts product={product} /></form>
+                </div> */}
+              </div>
+            );
+          })}
+        </div>
+        {/* </div> */}
+        <div data-test-id="cart-total">Total price: {totalPrice}</div>
+        <Link
+          className={styles.checkoutButton}
+          type="button"
+          data-test-id="cart-checkout"
+          href="/checkout"
+        >
+          Checkout
+        </Link>
       </div>
-      <br />
-      <br />
-
-      <div data-test-id="cart-total">Total price: {totalPrice}</div>
-
-      <Link
-        className={styles.checkoutButton}
-        type="button"
-        data-test-id="cart-checkout"
-        href="/checkout"
-      >
-        Checkout
-      </Link>
     </main>
   );
 }
