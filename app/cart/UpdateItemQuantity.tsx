@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { decreaseQuantity, increaseQuantity } from '../cart/actions';
+import styles from './UpdateItemQuantity.module.scss';
 
 type Props = {
   product: {
@@ -13,9 +14,9 @@ export default function UpdateItemQuantity(props: Props) {
   const router = useRouter();
 
   return (
-    <div>
+    <div className={styles.quantityButton}>
       <button
-        data-test-id=""
+        className={styles.buttonMinusPlus}
         formAction={async () => {
           router.refresh();
           await decreaseQuantity(props.product);
@@ -24,12 +25,15 @@ export default function UpdateItemQuantity(props: Props) {
         -
       </button>
 
-      <div data-test-id="cart-product-quantity-<product id>">
+      <div
+        className={styles.inputField}
+        data-test-id="cart-product-quantity-<product id>"
+      >
         {props.product.quantity}
       </div>
 
       <button
-        data-test-id=""
+        className={styles.buttonMinusPlus}
         formAction={async () => {
           router.refresh();
           await increaseQuantity(props.product);

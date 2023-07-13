@@ -58,9 +58,10 @@ export default async function CartPage() {
         {/* <div className={styles.mainCart}> */}
         <div className={styles.cartSections}>
           <p>Product</p>
-          <p>Title</p>
+          <p> </p>
           <p>Price</p>
           <p>Quantity</p>
+          <p>Subtotal</p>
         </div>
         <div
           // className={styles.cartContainer}
@@ -82,18 +83,17 @@ export default async function CartPage() {
                     alt={product.title}
                   />
                 </Link>
-                <div className={styles.productTitle}>{product.title}</div>
-                {/* <div> */}
+                <div className={styles.productTitle}>
+                  {product.title}
+                  <form>
+                    <RemoveProducts product={product} />{' '}
+                  </form>
+                </div>
                 <div>{product.price}</div>
                 <form className={styles.productQuantity}>
                   <UpdateItemQuantity product={product} />
-                  <RemoveProducts product={product} />
                 </form>
                 <div>{subTotal}</div>
-                {/* </div> */}
-                {/* <div>
-                  <form><RemoveProducts product={product} /></form>
-                </div> */}
               </div>
             );
           })}

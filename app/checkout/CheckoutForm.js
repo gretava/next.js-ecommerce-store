@@ -18,6 +18,21 @@ export default function CheckoutForm() {
   const [expirationDate, setExpirationDate] = useState('');
   const [securityCode, setSecurityCode] = useState('');
 
+  const validate = () => {
+    return (
+      firstName.length &&
+      lastName.length &&
+      email.length &&
+      address.length &&
+      city.length &&
+      postalCode.length &&
+      country.length &&
+      creditCardNumber.length &&
+      expirationDate.length &&
+      securityCode.length
+    );
+  };
+
   return (
     <main className={styles.main}>
       <form className={styles.checkoutForm}>
@@ -153,6 +168,7 @@ export default function CheckoutForm() {
             type="button"
             data-test-id="checkout-confirm-order"
             onClick={() => router.push('/checkout/thank-you')}
+            disabled={!validate()}
           >
             Confirm order
           </button>
