@@ -79,7 +79,7 @@ export default function RootLayout({ children }: LayoutProps) {
             <p>hello@company.com</p>
           </div>
           <div>
-            <p>social media</p>
+            <p>social media icons</p>
           </div>
         </footer>
       </body>

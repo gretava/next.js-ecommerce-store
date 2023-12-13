@@ -1,9 +1,14 @@
 .pageTitle {
-  width: 100%;
+  // width: 100%;
   text-align: center;
-  padding-top: 1rem;
-  font-family: var(--title-font);
-  font-size: 18px;
+  padding: 1.2rem 0.5rem;
+  // font-family: var(--title-font);
+  font-size: 1.2rem;
+  margin-left: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-weight: 600;
+  font-family: var(--body-font);
 }
 
 .productsPageContainer {
@@ -13,4 +18,10 @@
   margin: 1.5rem 5%;
   font-family: var(--body-font);
   font-size: 0.9rem;
+  background-color: aquamarine;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }

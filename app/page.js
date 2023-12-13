@@ -22,9 +22,9 @@ export default function HomePage() {
             alt="handmade soap"
           />
         </div>
-        <div>
+        {/* <div>
           <button className={styles.heroButton}>shop all</button>
-        </div>
+        </div> */}
       </section>
     </main>
   );

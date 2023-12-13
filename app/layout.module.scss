@@ -5,10 +5,8 @@
   // min-height: 100vh;
   display: flex;
   justify-content: space-between;
-  // flex-direction: row;
   align-items: center;
-  padding: 8px 8px;
-  // padding: 0 20px;
+  padding: 0.5rem 0.5rem;
   background-color: transparent;
   border-bottom: 1px solid rgb(170, 150, 101);
   // position: fixed;
@@ -17,7 +15,6 @@
   font-family: var(--body-font);
   letter-spacing: 1px;
   font-size: 1rem;
-  // color: rgb(43, 226, 76);
 
   // .navigationLinks {
 
@@ -40,25 +37,37 @@
     list-style-type: none;
     gap: 5rem;
     margin: 0 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     background-color: transparent;
     text-align: right;
-    text-decoration: none;
-    color: aquamarine;
+    text-transform: uppercase;
+    font-weight: 500;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
   }
 
   .nameHeader {
     font-family: var(--title-font);
-    letter-spacing: 1px;
-    font-size: 1.2rem;
+    letter-spacing: 0.25rem;
+    font-size: 1.4rem;
     // display: flex;
     // flex-direction: row;
     text-align: center;
     // align-items: center;
-    // padding: 12px 12px 12px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     // margin: 10px;
     // width: 40%;
     background-color: transparent;
-    color: rgb(43, 226, 76);
+
+    a {
+      text-decoration: none;
+      color: rgb(43, 226, 76);
+    }
   }
 
   .navigationLinksRight {
@@ -69,13 +78,23 @@
     list-style-type: none;
     gap: 5rem;
     margin: 0 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     text-align: right;
+    text-transform: uppercase;
+    font-weight: 500;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
   }
 
   /////////////// FOOTER /////////////
 
   .footerSection {
     // font-family: var(--body-font);
+
     // position: absolute;
     margin-top: auto;
     // bottom: 0;
