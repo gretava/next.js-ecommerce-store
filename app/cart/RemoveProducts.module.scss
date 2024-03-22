@@ -1,16 +1,10 @@
 .removeButton {
   margin: 0;
   height: 1.7rem;
-  width: 8rem;
-  // padding: 4px 8px;
-  color: black;
-  // color: #f4f1ed;
-  // background-color: #6d7973;
+  width: 2rem;
   font-family: var(--body-font);
   text-transform: uppercase;
-  border: 1px solid gray;
-  border-radius: 0.3rem;
-  letter-spacing: 1.5px;
-  font-size: 0.8rem;
+  border: none;
+  font-size: 1rem;
   cursor: pointer;
 }

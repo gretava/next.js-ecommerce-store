@@ -52,21 +52,17 @@ export default async function CartPage() {
   console.log(subTotal);
 
   return (
-    <main className={styles.main}>
-      <h1>Your cart</h1>
+    <main>
       <div className={styles.cartBody}>
-        {/* <div className={styles.mainCart}> */}
         <div className={styles.cartSections}>
-          <p>Product</p>
-          <p> </p>
-          <p>Price</p>
-          <p>Quantity</p>
-          <p>Subtotal</p>
+          <span>
+            <li>Product</li>
+          </span>
+          <li>Price</li>
+          <li>Quantity</li>
+          <li>Subtotal</li>
         </div>
-        <div
-          // className={styles.cartContainer}
-          data-test-id="cart-product-<product id>"
-        >
+        <div data-test-id="cart-product-<product id>">
           {itemsInCart.map((product) => {
             subTotal = product.quantity * product.price;
             return (
@@ -74,40 +70,47 @@ export default async function CartPage() {
                 className={styles.cartProducts}
                 key={`product-${product.id}`}
               >
-                <Link href={`/products/${product.id}`}>
-                  <Image
-                    className={styles.productImage}
-                    src={`/images/${product.name}.jpg`}
-                    width={120}
-                    height={150}
-                    alt={product.title}
-                  />
-                </Link>
-                <div className={styles.productTitle}>
-                  {product.title}
-                  <form>
-                    <RemoveProducts product={product} />{' '}
-                  </form>
+                <div className={styles.productTitleDiv}>
+                  <Link href={`/products/${product.id}`}>
+                    <Image
+                      className={styles.productImage}
+                      src={`/images/${product.name}.jpg`}
+                      width={150}
+                      height={180}
+                      alt={product.title}
+                    />
+                  </Link>
+                  <div className={styles.productTitle}>{product.title}</div>
                 </div>
-                <div>{product.price}</div>
-                <form className={styles.productQuantity}>
+                <div>€{product.price}</div>
+                <form>
                   <UpdateItemQuantity product={product} />
                 </form>
-                <div>{subTotal}</div>
+                <div>€{subTotal.toFixed(2)}</div>
+                <div>
+                  <form>
+                    <RemoveProducts product={product} />
+                  </form>
+                </div>
               </div>
             );
           })}
         </div>
-        {/* </div> */}
-        <div data-test-id="cart-total">Total price: {totalPrice}</div>
-        <Link
-          className={styles.checkoutButton}
-          type="button"
-          data-test-id="cart-checkout"
-          href="/checkout"
-        >
-          Checkout
-        </Link>
+        <div className={styles.totalCheckout}>
+          <div data-test-id="cart-total">
+            <span>Total price €{totalPrice.toFixed(2)}</span>
+          </div>
+          <div>
+            <Link
+              className={styles.checkoutButton}
+              type="button"
+              data-test-id="cart-checkout"
+              href="/checkout"
+            >
+              Checkout
+            </Link>
+          </div>
+        </div>
       </div>
     </main>
   );

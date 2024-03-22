@@ -21,7 +21,7 @@ export default function RemoveProducts(props: Props) {
           await removeProduct(props.product);
         }}
       >
-        Remove
+        X
       </button>
     </div>
   );
