@@ -17,7 +17,10 @@ export default async function ProductsPage() {
       <section className={styles.productsPageContainer}>
         {products.map((product) => {
           return (
-            <div key={`product-div-${product.id}`}>
+            <div
+              key={`product-div-${product.id}`}
+              className={styles.productImage}
+            >
               <Link href={`/products/${product.id}`}>
                 <Image
                   src={`/images/${product.name}.jpg`}

@@ -18,10 +18,14 @@
   margin: 1.5rem 5%;
   font-family: var(--body-font);
   font-size: 0.9rem;
-  background-color: aquamarine;
 
   a {
     text-decoration: none;
     color: black;
   }
+}
+
+.productImage:hover {
+  transition: 0.2s;
+  filter: opacity(0.7);
 }

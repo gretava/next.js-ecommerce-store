@@ -35,7 +35,9 @@ export default async function SingleProductPage(props: Props) {
         </div>
         <div className={styles.productContent}>
           <h1>{singleProduct.title}</h1>
-          <h4 data-test-id="product-price">€ {singleProduct.price}</h4>
+          <h4 data-test-id="product-price">
+            € {singleProduct.price} <span>incl. vat, excl. shipping</span>
+          </h4>
           <p>{singleProduct.description}</p>
           <AddToCartForm productId={singleProduct.id} />
         </div>
