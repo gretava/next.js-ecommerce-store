@@ -26,6 +26,12 @@
     }
   }
 
+  .emptyCartMessage {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+
   .cartProducts {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr;
