@@ -1,30 +1,48 @@
 .form {
-  text-align: start;
+  display: grid;
+  grid-template-columns: 30% 3fr;
+  gap: 1rem;
 
-  .quantityInput {
-    width: 40%;
-    height: 2rem;
-    border: 1px solid #555;
-    text-align: center;
+  .quantityControl {
     display: flex;
     justify-content: center;
     align-content: center;
+    margin: 0;
+    gap: 0.5rem;
+    border: 1px solid gray;
     border-radius: 0.3rem;
     font-size: 0.9rem;
     font-family: var(--body-font);
   }
+  .quantityInput {
+    display: flex;
+    padding: 0.8rem 1rem;
+    width: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .quantityButton {
+    width: 1rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    font-family: var(--body-font);
+    font-size: 1.2rem;
+    align-content: center;
+    text-align: center;
+  }
+
   .button {
-    margin: 0.5rem 0;
-    height: 2rem;
-    width: 40%;
+    padding: 0.8rem 1rem;
     color: #f4f1ed;
     background-color: #6d7973;
     font-family: var(--body-font);
     text-transform: uppercase;
     border: 0;
     border-radius: 0.3rem;
-    letter-spacing: 0.15rem;
-    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+    font-size: 0.9rem;
     cursor: pointer;
   }
 

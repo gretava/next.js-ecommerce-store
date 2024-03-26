@@ -12,19 +12,53 @@ export default function AddToCartForm(props: Props) {
   const [quantity, setQuantity] = useState(1);
   const router = useRouter();
 
+  const incrementQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrementQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   return (
     <form className={styles.form}>
-      <input
-        className={styles.quantityInput}
-        data-test-id="product-quantity"
-        type="number"
-        min="1"
-        // max={15}
-        value={quantity}
-        onChange={(event) => {
-          setQuantity(Number(event.currentTarget.value));
-        }}
-      />
+      <div className={styles.quantityControl}>
+        <button
+          className={styles.quantityButton}
+          onClick={(event) => {
+            event.preventDefault();
+            decrementQuantity();
+          }}
+          data-test-id="quantity-decrement"
+        >
+          -
+        </button>
+        {/* <input
+          className={styles.quantityInput}
+          data-test-id="product-quantity"
+          type="number"
+          min="1"
+          // max={15}
+          value={quantity}
+          onChange={(event) => {
+            setQuantity(Number(event.currentTarget.value));
+          }}
+        /> */}
+
+        <div className={styles.quantityInput}>{quantity}</div>
+        <button
+          className={styles.quantityButton}
+          onClick={(event) => {
+            event.preventDefault();
+            incrementQuantity();
+          }}
+          data-test-id="quantity-increment"
+        >
+          +
+        </button>
+      </div>
       <button
         className={styles.button}
         data-test-id="product-add-to-cart"
