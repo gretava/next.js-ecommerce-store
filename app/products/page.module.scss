@@ -1,27 +1,35 @@
+.mainPage {
+  padding-bottom: 30px;
+}
 .pageTitle {
   // width: 100%;
-  text-align: center;
-  padding: 1.2rem 0.5rem;
-  // font-family: var(--title-font);
-  font-size: 1.2rem;
-  margin-left: 0.7rem;
+  text-align: start;
+  padding: 2rem 5rem;
+  font-family: var(--title-font);
+  font-size: 2rem;
+  // margin-left: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.2rem;
   font-weight: 600;
-  font-family: var(--body-font);
+  // font-family: var(--body-font);
 }
 
 .productsPageContainer {
   display: flex;
   justify-content: space-between;
-  padding: 0 5px;
+  padding: 0 0.5rem;
   margin: 1.5rem 5%;
   font-family: var(--body-font);
   font-size: 0.9rem;
 
+  span {
+    color: rgb(95, 93, 93);
+    font-size: 0.8rem;
+  }
+
   a {
     text-decoration: none;
-    color: black;
+    color: #000;
   }
 }
 

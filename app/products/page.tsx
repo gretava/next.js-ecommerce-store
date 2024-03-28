@@ -12,8 +12,8 @@ export default async function ProductsPage() {
   const products = await getProducts();
 
   return (
-    <main>
-      <h1 className={styles.pageTitle}>Shop our products</h1>
+    <main className={styles.mainPage}>
+      <h1 className={styles.pageTitle}>/ Shop</h1>
       <section className={styles.productsPageContainer}>
         {products.map((product) => {
           return (
@@ -37,7 +37,9 @@ export default async function ProductsPage() {
                   {product.title}
                 </Link>
               </div>
-              <div>€ {product.price}</div>
+              <div>
+                <span>€{product.price}</span>
+              </div>
             </div>
           );
         })}

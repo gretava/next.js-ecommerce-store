@@ -35,18 +35,6 @@ export default function AddToCartForm(props: Props) {
         >
           -
         </button>
-        {/* <input
-          className={styles.quantityInput}
-          data-test-id="product-quantity"
-          type="number"
-          min="1"
-          // max={15}
-          value={quantity}
-          onChange={(event) => {
-            setQuantity(Number(event.currentTarget.value));
-          }}
-        /> */}
-
         <div className={styles.quantityInput}>{quantity}</div>
         <button
           className={styles.quantityButton}
